@@ -20,8 +20,28 @@
 #
 ################################################################################
 
-from . import client
-from . import client_test
-from . import request_history
-from . import res_config_settings
-from . import mail_activity
+from odoo import api, models
+
+
+class MailActivity(models.Model):
+    _inherit = "mail.activity"
+
+    @api.model
+    def preprocessing_activity_data(self):
+        return {
+            'tolkbokning': {
+                'distanstolkTypId': self.location_type,
+                'fromDatumTid': str(self.time_start),
+                'tomDatumTid': str(self.time_end),
+                'tolksprakId': self.interpreter_language,
+                'tolkkonId': self.interpreter_gender_preference,
+                'bestallandeKAnr': self.department_id and self.department_id.ka_ref or None,
+                'adress': {
+                    'adress': self.street,
+                    'gatuadress': self.street2,
+                    'postnr': self.zip,
+                    'ort': self.city,
+                    'adressat': 'ipsum',
+                },
+            },
+        }

@@ -31,7 +31,7 @@ _logger = logging.getLogger(__name__)
 class ClientConfig(models.Model):
     _inherit = 'ipf.interpreter.client'
     _name = 'ipf.interpreter.client.test'
-    _description = 'IPF Client Test'
+    _description = 'IPF Interpreter Booking Client Test'
     _rec_name = 'url'
 
     def _get_default_url(self):

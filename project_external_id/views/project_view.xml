@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="project_project_quick_form_view" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.project_project_view_form_simplified"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="external_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="project_project_form_view" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="external_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="project_task_form_view" model="ir.ui.view">
+            <field name="name">project.task.form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                 <field name="user_id" position="after">
+                    <field name="external_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
